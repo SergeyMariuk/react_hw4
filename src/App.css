@@ -1,38 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+.users {
+  width: 60%;
+  border: 1px solid red;
+  padding: 10px;
+  margin: 20px 10px 20px 20px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+}
+
 .App {
+  display: flex;
+}
+
+.participant,
+.winner {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 20px 20px 20px 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.participant {
+  height: 60vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.winner {
+  height: calc(40vh - 60px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+  display: block;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  margin: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wrapper {
+  width: calc(40% - 20px);
+}
+
+.fname,
+.sname {
+  text-align: left;
+}
+
+.registration {
+  padding: 1em;
 }
