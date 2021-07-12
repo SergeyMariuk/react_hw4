@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Registration from '../components/Registration'
 import Timer from '../components/Timer'
 import { connect } from 'react-redux';
+import store from '../store'
 
 const NewParticipantContainer = ({addUser}) => {
     const [isReg, setIsReg] = useState(true)
@@ -34,7 +35,10 @@ const NewParticipantContainer = ({addUser}) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addUser: (data) => dispatch({type: 'ADD_PART', payload:data})
+        addUser: (data) => {
+            dispatch({type: 'ADD_PART', payload:data})
+            dispatch({type: 'UPDATE_STORAGE'})
+        }
     }
 }
 

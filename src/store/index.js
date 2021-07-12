@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initState = {
-    participants: [],
+    participants: JSON.parse(localStorage.getItem('participants')),
     winner: null,
 }
 
@@ -19,14 +19,19 @@ const reducer = (state=initState, action) => {
                     ...state,
                     participants:state.participants.filter(p => p.id != action.payload)
                 }
-                case 'SHOW_WINNER':
-                        const winner = state.participants.reduce((ac, item) => {
-                            return act.time > item.time ? item : ac;
-                        })
-                        return{
-                            ...state,
-                            winner,
-                        }
+            case 'SHOW_WINNER':
+                    const winner = state.participants.reduce((ac, item) => {
+                        return ac.time > item.time ? item : ac;
+                    })
+                    return{
+                        ...state,
+                        winner,
+                    }
+            case 'UPDATE_STORAGE':
+                localStorage.setItem('participants', JSON.stringify(state.participants));
+                return {
+                    ...state
+                }
         default:
             return state
     }

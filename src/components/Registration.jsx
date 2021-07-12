@@ -38,7 +38,6 @@ const Registration = ({setData, setIsReg}) => {
     const handleSubmit = e => {
         e.preventDefault();
         const {name, surname} = e.target.elements;
-        console.log(e.target.elements);
         if(name.value.length && surname.value.length){
             setData(state => {
                 return{...state,

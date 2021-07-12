@@ -39,7 +39,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        deleteParticipant: id => dispatch({type: 'REMOVE_PART', payload: id})
+        deleteParticipant: id => {
+            dispatch({type: 'REMOVE_PART', payload: id})
+            dispatch({type: 'UPDATE_STORAGE'})
+        }
     }
 }
 
