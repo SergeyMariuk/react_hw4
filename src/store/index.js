@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initState = {
-    participants: JSON.parse(localStorage.getItem('participants')),
+    participants: localStorage.getItem('participants')? JSON.parse(localStorage.getItem('participants')) : [],
     winner: null,
 }
 
